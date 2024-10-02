@@ -6,4 +6,4 @@ import json
 from datetime import datetime
 
 
-url = " "
+url = "https://mtuci.ru/about_the_university/news/"
