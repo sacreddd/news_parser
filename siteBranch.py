@@ -14,5 +14,7 @@ def news_text():
     return render_template(template,text=text)
 
 if __name__ == "__main__":
-
+    with open("data.json") as f:
+        a = f.read()
+        a = filter(f, "\\n")
     app.run()
