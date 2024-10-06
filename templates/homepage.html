@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+
+{% endblock %}
+
+{% block homepage %}
+<div class="wrapper">
+        <div class="empty_block"></div>
+                <div class="filter">
+                    <button type="button">Спорт</button>
+                    <button type="button">Программирование</button>
+                    <button type="button">Конференции</button>
+
+                </div>
+                <div class="arcticle">
+                        {% for article in articles %}
+                    <div class="title_article">
+                        <h2>{{ article.title }}</h2>
+                    </div>
+                    <div class="text_article">
+                        {{ article.text }}
+                    </div>
+                        <div class="empty_block">
+
+                        </div>
+                        {% endfor %}
+                </div>
+
+        </div>
+
+
+
+
+</div>
+
+{% endblock  homepage %}
