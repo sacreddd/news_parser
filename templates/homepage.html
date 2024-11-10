@@ -1,38 +1,42 @@
 {% extends 'base.html' %}
 
-
 {% block title %}
-
+<title>Главная страница</title>
 {% endblock %}
 
 {% block homepage %}
+<style>
+  .bold {
+    font-weight: bold;
+    font-size: 16px;
+  }
+</style>
 <div class="wrapper">
-        <div class="empty_block"></div>
-                <div class="filter">
-                    <button type="button">Спорт</button>
-                    <button type="button">Программирование</button>
-                    <button type="button">Конференции</button>
-
+                {% for article in articles %}
+                <div class="article">
+                <div class="title_article">
+                    {{ article.title }}
                 </div>
-                <div class="arcticle">
-                        {% for article in articles %}
-                    <div class="title_article">
-                        <h2>{{ article.title }}</h2>
-                    </div>
-                    <div class="text_article">
-                        {{ article.text }}
-                    </div>
-                        <div class="empty_block">
-
-                        </div>
-                        {% endfor %}
+                <div class="news_date">
+                    {{ article.date }}
                 </div>
-
-        </div>
-
-
+                <div class="university_name">
+                    {{ article.name }}
+                </div>
+                <div class="text_article">
+                    {{ article.text }}
+                </div>
+                <div class="article_image">
+                        <img src="{{ url_for('static', filename='temp/' + article.id + '.jpeg') }}" alt="Article Image">
+                </div>
+                <div class="empty_block"></div>
+                </div>
+                {% endfor %}
 
 
 </div>
+<div class="show_more">
+    <button id="load">Показать больше</button>
+</div>
 
-{% endblock  homepage %}
+{% endblock %}
